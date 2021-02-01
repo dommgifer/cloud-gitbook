@@ -13,6 +13,8 @@
 * [Ceilometer and Gnocchi Install](openstack/ceilometer-and-gnocchi-install.md)
 * [Grafana Integration Gnocchi](openstack/grafana-integration-gnocchi.md)
 * [Aodh Install](openstack/aodh_install.md)
+* [OpenStack Upgrade 測試](openstack/openstack-upgrade-ce-shi.md)
+* [OpenStack magnum](openstack/openstack-magnum.md)
 
 ## Other
 
@@ -26,8 +28,5 @@
 * [Kubernetes OpenStack Integration](kubernetes/kubernetes-openstack-integration.md)
 * [Rancher 2.0 ssh to OpenStack VM](kubernetes/rancher-2.0-ssh-to-openstack-vm.md)
 * [Rancher Kubernetes Engine\(RKE\)](kubernetes/rancher-kubernetes-engine-rke.md)
-
----
-
-* [Kubernetes 建立 pipeline](kubernetes-jian-li-pipeline.md)
+* [Kubernetes 建立 pipeline](kubernetes/kubernetes-jian-li-pipeline.md)
 
