@@ -88,14 +88,14 @@ chaos-dashboard                 NodePort    10.43.147.66    <none>        2333:3
 
 7.  進入 dashboard 需要透過 token，可以透過 Click here 取得建立token 步驟&#x20;
 
-    <figure><img src="../.gitbook/assets/dashboard-token-guide.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/dashboard-token-guide.png" alt=""><figcaption></figcaption></figure>
 8.  根據所需權限，選擇namespace或是整個 Cluster，並按照步驟建立rbac 和 token&#x20;
 
-    <figure><img src="../.gitbook/assets/rbac-token-setup.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/rbac-token-setup.png" alt=""><figcaption></figcaption></figure>
 9.  取得token後輸入，即可登入\
     &#x20;
 
-    <figure><img src="../.gitbook/assets/token-login.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/token-login.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立測試程式
 
@@ -110,67 +110,67 @@ https://github.com/chaos-mesh/chaos-mesh/tree/master/examples/web-show
 2. 執行 deploy.sh
 3.  建立完成後，從 NodePort 進入web-show&#x20;
 
-    <figure><img src="../.gitbook/assets/web-show-demo.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/web-show-demo.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立網路延遲實驗
 
 1.  建立一個實驗，類型為網路攻擊的延遲，設為 10ms&#x20;
 
-    <figure><img src="../.gitbook/assets/network-delay-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-delay-config.png" alt=""><figcaption></figcaption></figure>
 2.  目標設定為 web-show pod，持續 10s，然後建立&#x20;
 
-    <figure><img src="../.gitbook/assets/network-delay-target.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-delay-target.png" alt=""><figcaption></figcaption></figure>
 3.  查看web-show 發現 ping 的封包確實有持續10s延遲&#x20;
 
-    <figure><img src="../.gitbook/assets/network-delay-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-delay-result.png" alt=""><figcaption></figcaption></figure>
 4.  回到實驗頁面，看到實驗已執行完成&#x20;
 
-    <figure><img src="../.gitbook/assets/network-delay-complete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-delay-complete.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立網路封包遺失實驗
 
 1.  建立一個實驗，類型為網路封包遺失，遺失率為 100%&#x20;
 
-    <figure><img src="../.gitbook/assets/network-loss-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-loss-config.png" alt=""><figcaption></figcaption></figure>
 2.  目標設定為 web-show pod，持續 10s，然後建立&#x20;
 
-    <figure><img src="../.gitbook/assets/network-loss-target.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-loss-target.png" alt=""><figcaption></figcaption></figure>
 3.  查看 web-show，確定封包有遺失&#x20;
 
-    <figure><img src="../.gitbook/assets/network-loss-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/network-loss-result.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立 Pod Failure 實驗
 
 1.  建立 Pod Fault 類型的 pod Failure 實驗&#x20;
 
-    <figure><img src="../.gitbook/assets/pod-failure-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/pod-failure-config.png" alt=""><figcaption></figcaption></figure>
 2.  選定 web-show pod，持續時間為永久，送出實驗&#x20;
 
-    <figure><img src="../.gitbook/assets/pod-failure-target.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/pod-failure-target.png" alt=""><figcaption></figcaption></figure>
 3.  查看 pod 狀態&#x20;
 
-    <figure><img src="../.gitbook/assets/pod-failure-status.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/pod-failure-status.png" alt=""><figcaption></figcaption></figure>
 4.  查看實驗狀態&#x20;
 
-    <figure><img src="../.gitbook/assets/pod-failure-experiment.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/pod-failure-experiment.png" alt=""><figcaption></figcaption></figure>
 5.  停止實驗，確認 pod 恢復正常&#x20;
 
-    <figure><img src="../.gitbook/assets/pod-failure-recovered.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/pod-failure-recovered.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立 Pod CPU Memory 壓力測試實驗
 
 1.  建立 Stress Test 實驗，讓 Pod CPU 和 Memory 滿載&#x20;
 
-    <figure><img src="../.gitbook/assets/stress-test-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/stress-test-config.png" alt=""><figcaption></figcaption></figure>
 2.  選定 web-show pod，持續時間為永久，送出實驗&#x20;
 
-    <figure><img src="../.gitbook/assets/stress-test-target.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/stress-test-target.png" alt=""><figcaption></figcaption></figure>
 3.  此範例程式的資源 limit 為 cpu 0.3 core memort 20Mi
 
-    <figure><img src="../.gitbook/assets/stress-test-limit.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/stress-test-limit.png" alt=""><figcaption></figcaption></figure>
 4.  查看pod監控值，CPU Memory都滿載&#x20;
 
-    <figure><img src="../.gitbook/assets/stress-test-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/stress-test-result.png" alt=""><figcaption></figcaption></figure>
 
 ## 建立多個混沌實驗(workflow)
 
@@ -182,7 +182,7 @@ network delay 10ms 持續20s -> 暫停 5s -> network loss 100% 持續20s
 
 可以透過 UI 來制定 workflow  不過以下範例是透過 yaml 來制定
 
-<figure><img src="../.gitbook/assets/workflow-ui.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/workflow-ui.png" alt=""><figcaption></figcaption></figure>
 
 1.建立workflow yaml 檔
 
@@ -236,10 +236,10 @@ spec:
 2. 使用 kubectl apply 建立 workflow
 3.  查看 web-show 結果，確實先 delay，暫停，再 loss&#x20;
 
-    <figure><img src="../.gitbook/assets/workflow-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/workflow-result.png" alt=""><figcaption></figcaption></figure>
 4.  查看 workflow 頁面的實驗拓墣圖&#x20;
 
-    <figure><img src="../.gitbook/assets/workflow-topology.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/workflow-topology.png" alt=""><figcaption></figcaption></figure>
 
 ## DNS Chaos
 
@@ -253,27 +253,27 @@ helm upgrade chaos-mesh chaos-mesh/chaos-mesh --namespace=chaos-mesh --set dnsSe
 
 安裝 Chaos DNS Service 後，才會看到 DNS的錯誤實驗 可以選擇 error
 
-先測試解析錯誤，測試解析到 google.com 有錯誤  指定服務 ![dns-error-target](../.gitbook/assets/dns-error-target.png)
+先測試解析錯誤，測試解析到 google.com 有錯誤  指定服務 ![dns-error-target](../.gitbook/assets/chaos-mesh/dns-error-target.png)
 
-<figure><img src="../.gitbook/assets/dns-error-config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/dns-error-config.png" alt=""><figcaption></figcaption></figure>
 
 這是在注入 DNS 錯誤前，從pod 內部 ping google.com ，可以解析&#x20;
 
-<figure><img src="../.gitbook/assets/dns-before-inject.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/dns-before-inject.png" alt=""><figcaption></figcaption></figure>
 
 注入錯誤後，就無法解析了&#x20;
 
-<figure><img src="../.gitbook/assets/dns-after-inject.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/dns-after-inject.png" alt=""><figcaption></figcaption></figure>
 
 測試 DNS Random 返回 IP，這次輸入\*，所有的 domain name 會隨機返回 IP  指定服務&#x20;
 
-<figure><img src="../.gitbook/assets/dns-random-config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/dns-random-config.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/dns-random-target.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/dns-random-target.png" alt=""><figcaption></figcaption></figure>
 
 從pod ping 測試，可以看到不論是 cluster 內部或外部的 domain name 解析，都會隨機返回 IP
 
-![dns-random-result](../.gitbook/assets/dns-random-result.png)
+![dns-random-result](../.gitbook/assets/chaos-mesh/dns-random-result.png)
 
 ## 總結
 
@@ -325,7 +325,7 @@ chaos mesh 對應 chasod 版本
     $ kubectl get  physicalmachines -n chaos-mesh
     ```
 
-    ![chaosd-physicalmachine-crd](../.gitbook/assets/chaosd-physicalmachine-crd.png)
+    ![chaosd-physicalmachine-crd](../.gitbook/assets/chaos-mesh/chaosd-physicalmachine-crd.png)
 4.  到各個標機器下載 chasod，最新版本請看 https://github.com/chaos-mesh/chaosd/releases
 
     ```
@@ -344,46 +344,46 @@ chaos mesh 對應 chasod 版本
     $ chaosd server --https-port 31768 --CA=/home/ubuntu/chaosd/pki/ca.crt --cert=/home/ubuntu/chaosd/pki/chaosd.crt --key=/home/ubuntu/chaosd/pki/chaosd.key
     ```
 
-    ![chaosd-server-start](../.gitbook/assets/chaosd-server-start.png)
+    ![chaosd-server-start](../.gitbook/assets/chaos-mesh/chaosd-server-start.png)
 
 ### 測試實驗
 
 如果要在實驗中選擇目標機器，請開啟 Use new PhysicalMachine CRD
 
-![chaosd-enable-crd](../.gitbook/assets/chaosd-enable-crd.png)
+![chaosd-enable-crd](../.gitbook/assets/chaos-mesh/chaosd-enable-crd.png)
 
 #### CPU 壓力
 
 1.  選擇 Hosts -> Stress Test -> CPU，設定壓力&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-cpu-stress-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-cpu-stress-config.png" alt=""><figcaption></figcaption></figure>
 2. 選擇目標機器，設定持續時間，送出
 
-![chaosd-cpu-stress-target](../.gitbook/assets/chaosd-cpu-stress-target.png)
+![chaosd-cpu-stress-target](../.gitbook/assets/chaos-mesh/chaosd-cpu-stress-target.png)
 
 3.  到目標機器，可以看到 chaosd 被呼叫了建立實驗 API  查看機器的 cpu，確實有被加壓到80%&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-cpu-stress-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-cpu-stress-api.png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/chaosd-cpu-stress-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-cpu-stress-result.png" alt=""><figcaption></figcaption></figure>
 
 #### Network dekay
 
 1.  選擇 Hosts -> Network Attack -> delay&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-delay-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-delay-menu.png" alt=""><figcaption></figcaption></figure>
 2.  設定延遲，指定網卡，這裡設定往 192.168.1.20(master)和192.168.1.21(worker1)的網路延遲10000ms&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-delay-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-delay-config.png" alt=""><figcaption></figcaption></figure>
 
 3.選擇目標機器，設定持續時間，送出&#x20;
 
-<figure><img src="../.gitbook/assets/chaosd-network-delay-target.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-delay-target.png" alt=""><figcaption></figcaption></figure>
 
 4. 以上的結果會是 讓 worker4 送往(或收到) master 和 worker1 的網路延遲 10000ms
 5.  查看 k8s 的 節點狀態，可以看到 worker4有問題&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-delay-result.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-delay-result.png" alt=""><figcaption></figcaption></figure>
 
 當然可以再設定長一點的延遲或是持續時間，觀察在worker4上面的pod 會有什麼狀況，或是觸發告警等等，把狀況記錄下來
 
@@ -391,17 +391,17 @@ chaos mesh 對應 chasod 版本
 
 1.  選擇 Hosts -> Network Attack&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-loss-menu.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-loss-menu.png" alt=""><figcaption></figcaption></figure>
 2.  設定封包遺失率，指定網卡，這裡設定從 192.168.1.19 來的封包(或送出)，遺失率50%，其餘設定請看官網&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-loss-config.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-loss-config.png" alt=""><figcaption></figcaption></figure>
 3.  選擇目標機器，設定持續時間，送出&#x20;
 
-    <figure><img src="../.gitbook/assets/chaosd-network-loss-target.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-loss-target.png" alt=""><figcaption></figcaption></figure>
 4. 從 192.168.1.19　測試　ping 目標機器，發現封包會掉包
 
-![chaosd-network-loss-result](../.gitbook/assets/chaosd-network-loss-result.png)
+![chaosd-network-loss-result](../.gitbook/assets/chaos-mesh/chaosd-network-loss-result.png)
 
 從頁面看會卡 Injecting，但實際上是有作用，問題待解&#x20;
 
-<figure><img src="../.gitbook/assets/chaosd-network-loss-status.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chaos-mesh/chaosd-network-loss-status.png" alt=""><figcaption></figcaption></figure>
