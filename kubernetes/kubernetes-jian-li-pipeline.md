@@ -13,7 +13,7 @@
 
 建立流程如下:
 
-![圖片來源: ironman2018-day28](../.gitbook/assets/20107062tZLXYswsgi.png)
+![圖片來源: ironman2018-day28](../.gitbook/assets/k8s-pipeline/pipeline-architecture.png)
 
 簡單的說就是開發者只需要 commit程式到 git，你的程式就會自動佈署到指定的環境，不要再去管其他事情啦
 
@@ -157,22 +157,22 @@ router-id = 30532231-9971-4c08-9c3f-4d6e58b65417
 * 點選左方管理jenkins → 右方設定系統 → 找到 Kubernetes 的 images
 * 修改 Pod Template，修改 name 為 **jenkins-slave** (比較好辨認)和 images 為 **bash8989/jnlp-slave-docker:3.26-1** ，(此 image 去docker hub上隨意找的，實際上應該要自己打包比較安全)
 
-![](../.gitbook/assets/pod1.jpg)
+![](../.gitbook/assets/k8s-pipeline/slave-pod-template.jpg)
 
 * 這裡要修改一下記憶體限制，預設只能使用 256MB，但是在打包的時候記憶體會不夠用，所以請點選下方的**進階**，然後修改記憶體為 512MB (或是更大)
 
-![](../.gitbook/assets/memory.jpg)
+![](../.gitbook/assets/k8s-pipeline/slave-memory-limit.jpg)
 
 * 後再點選下方的 **Add Container**，再新增一個 container，是可以使用kubectl指令的container， 名稱為 **jenkins-slave-kubectl**，image 是使用 **lachlanevenson/k8s-kubectl:v1.10.12**
 
-![](../.gitbook/assets/kubectl.jpg)
+![](../.gitbook/assets/k8s-pipeline/slave-kubectl-container.jpg)
 
 * 接下來新增 volume
   * Host path Volume: 需要將 host 上的 docker 行程 mount 至 slave，這樣 slave 的 docker 指令才能正常運作。 路徑為 **/var/run/docker.sock**
   * Secret volume: 新增 docker registry 的 CA 認證，由於 slave 跟 docker registry 只能走 https， 因此需要 CA 證書，這裡的 Secret name 先填入 **registry**，稍後會在 k8s 裡新增 secret， 至於 Mount path，根據你的 docker registry 的 IP 修改就好，路徑為 **/etc/docker/certs.d/10.40.1.175/**
   * Secret volume: 新增 kubeconfig，讓 kubectl 可以幫你佈署程式至你的 k8s ，Secret name 先填入 **kubeconfig**，稍後會在 k8s 新增，Mount path 為 **/home/jenkins/.kube**，
 
-![](../.gitbook/assets/volume.jpg)
+![](../.gitbook/assets/k8s-pipeline/slave-volume-config.jpg)
 
 ## Kubernetes 新增 secret
 
@@ -207,7 +207,7 @@ data:
 * 由於需要知道 docker registry 的帳號密碼，所以要新增認證
 * 點選左側Credentials → 右方global → 左側 Add Credentials，選擇username and password， 然後填入你的 registry 帳號密碼，ID 可以自行填入好記的名稱，如果不填他會隨機產生 ID
 
-![](../.gitbook/assets/registry.jpg)
+![](../.gitbook/assets/k8s-pipeline/registry-credentials.jpg)
 
 ## 更改 Jenkinsfile
 
@@ -237,7 +237,7 @@ docker.withRegistry('https://10.40.1.175', 'registry')
 請自行更換 gitlabIP
 {% endhint %}
 
-![](../.gitbook/assets/git.jpg)
+![](../.gitbook/assets/k8s-pipeline/git-branch-source.jpg)
 
 新增完成後，應該會看到 master 的 branch ，然後 jenkins 會掃描 git project 裡的 Jenkinsfile，然後根據 Jenkinsfile 進行 pipeline
 
@@ -247,7 +247,7 @@ docker.withRegistry('https://10.40.1.175', 'registry')
 
 * 開始建置後，可以看到左下方的slave 被建立
 
-![](../.gitbook/assets/build.jpg)
+![](../.gitbook/assets/k8s-pipeline/build-slave-created.jpg)
 
 * 可以使用 kubectl get pod 看到 slave
 
@@ -260,11 +260,11 @@ jenkins-tzfry-57fc5b6fd5-ls6fk         1/1     Running   0          7d
 
 * 建置中可以點選 master，點選後左側有建置次數，以及建置的 stage
 
-![](../.gitbook/assets/number.jpg)
+![](../.gitbook/assets/k8s-pipeline/build-stage-view.jpg)
 
 * 點選左方的某次的建置，進入後點選 console output，可以看見建置過程的 output，可以用來查看建置失敗原因
 
-![](../.gitbook/assets/output.jpg)
+![](../.gitbook/assets/k8s-pipeline/console-output.jpg)
 
 ## 測試應用程式
 
@@ -284,18 +284,18 @@ jenkins-tzfry-57fc5b6fd5-ls6fk         1/1     Running   0          7d
     ```
 * 根據你 k8s 節點 IP，在瀏覽器輸入 IP:port(這裡是32464)，即看到應用程式
 
-![](../.gitbook/assets/hello.jpg)
+![](../.gitbook/assets/k8s-pipeline/hello-world-result.jpg)
 
 ## 設定 gitlab trigger
 
 * 當 gitlab 有新的 commit 時，會自動觸發 pipeline 流程，需要建立 webhook token 點選 master，左側檢視設定 → Build Triggers → 右下方進階 → Secret token → generate
 
-![](../.gitbook/assets/gitlab.jpg)
+![](../.gitbook/assets/k8s-pipeline/gitlab-webhook-token.jpg)
 
 * 複製 token，以及 上面紅框 webhook URL: [http://jenkins:8080/project/test/master](http://jenkins:8080/project/test/master) ， 但是要注意 webhook 的網址要根據你如何存取 jenkins 服務做修改，這裡是用 Loadbalancer 的方式，所以 webhook 應該是: [http://10.50.2.21:8080//project/hello-word/master](http://10.50.2.21:8080/project/hello-word/master)
 * 回到 gitlab 的專案，選擇左下 settings → Intergrations，填入 webhook 和 token，可以勾選你想觸發的方式，下方 SSL 請不要打勾 ，完成後按 add webhook
 
-![](../.gitbook/assets/webhook.jpg)
+![](../.gitbook/assets/k8s-pipeline/gitlab-webhook-config.jpg)
 
 *   修改 git project 的 main.go，將文字改成 Hello OpenStack World
 
@@ -305,7 +305,7 @@ jenkins-tzfry-57fc5b6fd5-ls6fk         1/1     Running   0          7d
 * 存檔然後 commit 和 push ，就會看到 jenkins 自己開始建置了，
 * 建置完成後，可以看到應用程式已更新
 
-![](../.gitbook/assets/hello2.jpg)
+![](../.gitbook/assets/k8s-pipeline/hello-world-updated.jpg)
 
 ## 備註
 
@@ -317,4 +317,4 @@ jenkins-tzfry-57fc5b6fd5-ls6fk         1/1     Running   0          7d
   * pipeline script: 使用 Groovy 撰寫
 * docker registry: 可以查看 jenkins 是否有 push images 到 registry，有的話應該會如下圖，沒有的話可以看 console output 處理錯誤
 
-![](../.gitbook/assets/harbor.jpg)
+![](../.gitbook/assets/k8s-pipeline/harbor-images.jpg)
