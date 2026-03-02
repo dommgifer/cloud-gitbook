@@ -1,5 +1,5 @@
 # 透過 Kubekey 建立 Kubernetes 和 Kubersphere
-% hint style="info" %}
+{% hint style="info" %}
 紀錄時間為 2023/10/12，內容可時，僅記錄
 {% endhint %}
 
@@ -94,48 +94,64 @@
 
     ```
 
-6. 登入畫面\
-  &#x20;![login-page](../.gitbook/assets/kubekey/login-page.png)
+6. 登入畫面&#x20;
 
-1. 針對管理，有分三大項目\
-  &#x20;![management-overview](../.gitbook/assets/kubekey/management-overview.png)
+    <figure><img src="../.gitbook/assets/kubekey/login-page.png" alt=""><figcaption></figcaption></figure>
+
+1. 針對管理，有分三大項目&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/management-overview.png" alt=""><figcaption></figcaption></figure>
 
 1. Cluster Management
- * 管理 k8s cluster 相關資源\
-    &#x20;![cluster-management](../.gitbook/assets/kubekey/cluster-management.png)
+ * 管理 k8s cluster 相關資源&#x20;
 
- * KubeSphere的安裝包含監控\
- &#x20;![monitoring-dashboard](../.gitbook/assets/kubekey/monitoring-dashboard.png)
- * Cluster 監控 overview\
- &#x20;![cluster-monitor-overview](../.gitbook/assets/kubekey/cluster-monitor-overview.png)
- * 節點資源\
- &#x20;![node-resources](../.gitbook/assets/kubekey/node-resources.png)
- * API Server 監控\
- &#x20;![apiserver-monitor](../.gitbook/assets/kubekey/apiserver-monitor.png)
- * scheduler 監控\
- &#x20;![scheduler-monitor](../.gitbook/assets/kubekey/scheduler-monitor.png)
- * 資源使用排行，多節點時可以根據資源使用量做排序顯示\
- &#x20;![resource-usage-ranking](../.gitbook/assets/kubekey/resource-usage-ranking.png)
- * workload 監控\
- &#x20;![workload-monitor-1](../.gitbook/assets/kubekey/workload-monitor-1.png)\
- &#x20;![workload-monitor-2](../.gitbook/assets/kubekey/workload-monitor-2.png)
+    <figure><img src="../.gitbook/assets/kubekey/cluster-management.png" alt=""><figcaption></figcaption></figure>
+
+ * KubeSphere的安裝包含監控&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/monitoring-dashboard.png" alt=""><figcaption></figcaption></figure>
+ * Cluster 監控 overview&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/cluster-monitor-overview.png" alt=""><figcaption></figcaption></figure>
+ * 節點資源&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/node-resources.png" alt=""><figcaption></figcaption></figure>
+ * API Server 監控&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/apiserver-monitor.png" alt=""><figcaption></figcaption></figure>
+ * scheduler 監控&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/scheduler-monitor.png" alt=""><figcaption></figcaption></figure>
+ * 資源使用排行，多節點時可以根據資源使用量做排序顯示&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/resource-usage-ranking.png" alt=""><figcaption></figcaption></figure>
+ * workload 監控&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/workload-monitor-1.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../.gitbook/assets/kubekey/workload-monitor-2.png" alt=""><figcaption></figcaption></figure>
 
 
 
-9. 權限管理\
-  &#x20;![access-control](../.gitbook/assets/kubekey/access-control.png)
+9. 權限管理&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/access-control.png" alt=""><figcaption></figcaption></figure>
   * 主要設定是 kubesphere 平台相關的權限
-    * 叢集權限\
-    &#x20;![cluster-role](../.gitbook/assets/kubekey/cluster-role.png)
-    * 平台角色\
-    &#x20;![platform-role](../.gitbook/assets/kubekey/platform-role.png)
-    * 是否可操作 Kubesphere 平台\
-    &#x20;![platform-operation](../.gitbook/assets/kubekey/platform-operation.png)
+    * 叢集權限&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/cluster-role.png" alt=""><figcaption></figcaption></figure>
+    * 平台角色&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/platform-role.png" alt=""><figcaption></figcaption></figure>
+    * 是否可操作 Kubesphere 平台&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/platform-operation.png" alt=""><figcaption></figcaption></figure>
 
 
 10. 平台設定
-    * 主要是設定平台通知相關\
-    &#x20;![platform-notification](../.gitbook/assets/kubekey/platform-notification.png)
+    * 主要是設定平台通知相關&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/platform-notification.png" alt=""><figcaption></figcaption></figure>
 
 ## Kubesphere Plugin
 有支援很多plugin，[請看官網](https://kubesphere.io/zh/docs/v3.3/pluggable-components/)
@@ -158,18 +174,22 @@
 
 以下範例啟用應用商店
 
-1. 進入CRD 搜尋 clusterconfiguration\
-  &#x20;![crd-search](../.gitbook/assets/kubekey/crd-search.png)
+1. 進入CRD 搜尋 clusterconfiguration&#x20;
 
-2. 點選 ks-install，編輯yaml\
-  &#x20;![ks-install-yaml](../.gitbook/assets/kubekey/ks-install-yaml.png)
-  找到 openpitrix.store.enabled 設定 true\
-  &#x20;![openpitrix-enable](../.gitbook/assets/kubekey/openpitrix-enable.png)
+    <figure><img src="../.gitbook/assets/kubekey/crd-search.png" alt=""><figcaption></figcaption></figure>
+
+2. 點選 ks-install，編輯yaml&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/ks-install-yaml.png" alt=""><figcaption></figcaption></figure>
+  找到 openpitrix.store.enabled 設定 true&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/openpitrix-enable.png" alt=""><figcaption></figcaption></figure>
 
 3. 查看安裝過程
     ```
     kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l 'app in (ks-install, ks-installer)' -o jsonpath='{.items[0].metadata.name}') -f
     ```
 
-4. 完成在 kubesphere 頁面可以看到應用商店\
-  &#x20;![app-store](../.gitbook/assets/kubekey/app-store.png)
+4. 完成在 kubesphere 頁面可以看到應用商店&#x20;
+
+    <figure><img src="../.gitbook/assets/kubekey/app-store.png" alt=""><figcaption></figcaption></figure>
