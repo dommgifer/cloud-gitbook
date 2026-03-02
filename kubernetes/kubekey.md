@@ -181,7 +181,8 @@
 2. 點選 ks-install，編輯yaml&#x20;
 
     <figure><img src="../.gitbook/assets/kubekey/ks-install-yaml.png" alt=""><figcaption></figcaption></figure>
-  找到 openpitrix.store.enabled 設定 true&#x20;
+
+    找到 openpitrix.store.enabled 設定 true&#x20;
 
     <figure><img src="../.gitbook/assets/kubekey/openpitrix-enable.png" alt=""><figcaption></figcaption></figure>
 
