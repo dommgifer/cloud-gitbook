@@ -26,7 +26,7 @@ Rancher 2.0可以幫使用者建立 OpenStack 上的 VM，並安裝 docker 及 k
   4. OpenStack 就建立所指定參數的VM
   5. VM 建立完成後，Rancher 就使用指定的 Private key file，SSH進入VM 安裝K8S
 
-![](../.gitbook/assets/ras.jpg)
+![](../.gitbook/assets/rancher-ssh/ssh-flow-diagram.jpg)
 
 如果你沒有把 mykey 的 private key 放到 Rancher container 你所指定的Private key file路徑裡，  
 Rancher會停在 **waiting for ssh to be available** 的狀態，因為他無法 SSH 到 VM 裡面安裝 K8S。

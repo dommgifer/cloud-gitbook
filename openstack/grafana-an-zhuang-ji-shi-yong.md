@@ -86,38 +86,38 @@ description: >-
 
 Dashboard 帳密皆admin
 
-![](../.gitbook/assets/grafana_dash.jpg)
+![](../.gitbook/assets/grafana-install/dashboard-login.jpg)
 
 登入後點選 create data source後，Type選擇gnocchi，之後設定依照下圖:\
 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=600\&tok=4ceb75\&media=project:openstack:opentack_auto_scaling:grafana_gnocchi.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Aopentack_auto_scaling%3Agrafana\&media=project:openstack:opentack_auto_scaling:grafana_gnocchi.jpg)
 
-![](../.gitbook/assets/grafana_gnocchi.jpg)
+![](../.gitbook/assets/grafana-install/gnocchi-datasource.jpg)
 
 設定完後，至左邊工具列點選 create→dashboard，選擇圖表類型，這裡使用Graph\
 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=600\&tok=462c17\&media=project:openstack:opentack_auto_scaling:grafana_add.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Aopentack_auto_scaling%3Agrafana\&media=project:openstack:opentack_auto_scaling:grafana_add.jpg)
 
-![](../.gitbook/assets/grafana_add.jpg)
+![](../.gitbook/assets/grafana-install/add-graph-panel.jpg)
 
 新增後，點選上方Panel Title→ edit\
 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=600\&tok=2c33ac\&media=project:openstack:opentack_auto_scaling:grafana_edit.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Aopentack_auto_scaling%3Agrafana\&media=project:openstack:opentack_auto_scaling:grafana_edit.jpg)
 
-![](../.gitbook/assets/grafana_edit.jpg)
+![](../.gitbook/assets/grafana-install/edit-panel.jpg)
 
 根據下圖設定，**query的original**_**resource**_**id為VM的ID**，**Metric name為要監測項目**，\
 **Aggregator為顯示值得方式(平均、最大等等)**，**Granularity為間隔時間**，**Label為圖表上摺線的名稱**，紅框處還可以設定更多，不贅述，下圖為VM的cpu使用率圖表:
 
-![](../.gitbook/assets/grafana_graph.jpg)
+![](../.gitbook/assets/grafana-install/cpu-graph.jpg)
 
 最後新增完後的總覽:
 
-![](../.gitbook/assets/grafana_all.jpg)
+![](../.gitbook/assets/grafana-install/dashboard-overview.jpg)
 
 為了使用方便，可以直接 import 別人寫好的 dasboard，[可以在 grafana 官網搜尋](https://grafana.com/dashboards?dataSource=gnocchixyz-gnocchi-datasource\&panelType=graph\&search=openstack)，以下是我從官網找到的 **Openstack-Gnocchi instance metrics**，並修改監測 memory 參數後的 dashboard，[複製連結內的 json，點選 import 後，貼上 json，並選擇 load](https://github.com/dommgifer/config/blob/master/openstack-gnocchi-instance-metrics_rev1.json)。
 
-![](../.gitbook/assets/import.jpg)
+![](../.gitbook/assets/grafana-install/import-dashboard.jpg)
 
 選擇 datasource 為 gnocchi
 
 import dashboard 完成，可以從紅框處選擇要查看的 VM
 
-![](../.gitbook/assets/all.jpg)
+![](../.gitbook/assets/grafana-install/vm-selector.jpg)

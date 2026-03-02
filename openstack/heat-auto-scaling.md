@@ -15,7 +15,7 @@
   * web\_server\_scale\_policy: 設定擴展冷卻時間及一次擴展多少台
   * cpu\_alarm: 設定警告值，granularity 為監測間隔時間，threshold 為警告值
 
-![Auto scaling &#x793A;&#x610F;&#x5716;](../.gitbook/assets/autoscaling.gif)
+![Auto scaling &#x793A;&#x610F;&#x5716;](../.gitbook/assets/heat-autoscaling/architecture.gif)
 
 ## Heat Template
 
@@ -344,7 +344,7 @@ openstack stack create -f yaml -t autoscaling.yaml autoscaling
 
 stack 建立完成後，等待 VM 執行完 cloud init 腳本，完成後可由 horizon 的 stack overview 或指令 **opesntack stack show STACK\_ID**  得到 wordpress 網址以及查看此 stack 的 cpu使用率的 gnocchi 指令
 
-![Heat stack &#x8A73;&#x7D30;&#x8CC7;&#x6599;](../.gitbook/assets/heat.jpg)
+![Heat stack &#x8A73;&#x7D30;&#x8CC7;&#x6599;](../.gitbook/assets/heat-autoscaling/stack-overview.jpg)
 
 使用 gnocchi 指令查看 stack 的 cpu 使用率
 

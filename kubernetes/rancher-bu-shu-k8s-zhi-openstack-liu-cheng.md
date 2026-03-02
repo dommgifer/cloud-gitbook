@@ -17,16 +17,16 @@ OpenStack 本身有 Magnum 幫忙建立 Kubernetes，為什麼還要用Rancher?
 
 建立 cluster，選擇 custom
 
-![](../.gitbook/assets/1.jpg)
+![](../.gitbook/assets/rancher-deploy/custom-cluster.jpg)
 
 輸入 cluster 名稱，選擇 k8s 版本，以及網路 Provider，完成後選擇下一步
 
-![](../.gitbook/assets/2.jpg)
+![](../.gitbook/assets/rancher-deploy/cluster-config.jpg)
 
 此時會跳出command，要你輸入在被安裝 k8s 的機器上，腳色勾選 etcd 和 control plane，我們先稱呼為 Master 節點，將指令複製  
 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=600&tok=df9691&media=project:openstack:container:3.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Acontainer%3Arancher_custom&media=project:openstack:container:3.jpg)
 
-![](../.gitbook/assets/3.jpg)
+![](../.gitbook/assets/rancher-deploy/node-command.jpg)
 
 如果要建立 Worker ，步驟同上，只是腳色勾選 worker，並複製指令。
 
@@ -61,11 +61,11 @@ sudo curl https://releases.rancher.com/install-docker/17.03.sh | sh
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.0.5 --server https://10.50.2.9 --token 5spw8d6xp9b4rkx6mnbhp5nrsnqmgjmrz4x8h4s6fcnp8t48flzpgs --ca-checksum 7c2c35acef98590e2310b1dc054a8475bb19f220217b64cb52e86a99c6c46bc4 --etcd --controlplane
 ```
 
-![](../.gitbook/assets/4.jpg)
+![](../.gitbook/assets/rancher-deploy/vm-cloud-init.jpg)
 
 VM 建立完成後，可以查看 VM 的開機 log，可以看到過程中會安裝docker，以及啟動rancher的agnet去安裝k8s maser
 
-![](../.gitbook/assets/5.jpg)
+![](../.gitbook/assets/rancher-deploy/vm-boot-log.jpg)
 
 ### 建立 Worker VM
 
@@ -75,7 +75,7 @@ VM 建立完成後，可以查看 VM 的開機 log，可以看到過程中會安
 
 在 VM 啟動了 rancher 的 agnet 後，可以在 Rancher 端的 cluster 看到節點正在安裝 k8s
 
-![](../.gitbook/assets/6.jpg)
+![](../.gitbook/assets/rancher-deploy/cluster-provisioning.jpg)
 
 都安裝完成後，可以 ssh 進入 master [安裝 kubectl後](https://kubernetes.io/docs/tasks/tools/install-kubectl/)，至 cluster 點選 kubeconfig，複製後，把檔案放到 ~/.kube/config，  
 就可以用 kubectl 操作 k8s

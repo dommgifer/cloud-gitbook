@@ -18,7 +18,7 @@ description: 一個完全不懂AI的工程師被迫研究Kubeflow
 下圖為一個簡單的 pipeline 範例\
 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=200\&tok=2f100b\&media=project:openstack:container:pipeline.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Acontainer%3Akubeflow_pipelines\&media=project:openstack:container:pipeline.jpg)
 
-![](../.gitbook/assets/pipeline.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/pipeline-overview.jpg)
 
 * 每一格方框叫做 component，每一個 component 都是 container
 * component 可以輸出資料跟輸入資料
@@ -306,7 +306,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 上傳後，可以建立此 pipeline 的 run ，可以看到有 input 的欄位，就是上面的 count='Enter count of number'，這裡就可以設計成輸入 dataset
 
-![](../.gitbook/assets/%E6%93%B7%E5%8F%96.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/pipeline-run-input.jpg)
 
 ## Kubeflow Pipeline Metadata 可視化 <a href="#kubeflowpipelinemetadata-ke-shi-hua" id="kubeflowpipelinemetadata-ke-shi-hua"></a>
 
@@ -354,7 +354,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果
 
-![](../.gitbook/assets/table.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/table-output.jpg)
 
 ### Tensorboard
 
@@ -375,7 +375,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果 [![](http://10.50.0.12/wiki/lib/exe/fetch.php?w=600\&tok=faae13\&media=project:openstack:container:board1.jpg)](http://10.50.0.12/wiki/lib/exe/detail.php?id=project%3Aopenstack%3Acontainer%3Akubeflow_pipelines\&media=project:openstack:container:board1.jpg)
 
-![](../.gitbook/assets/board1.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/tensorboard.jpg)
 
 ### Confusion matrix
 
@@ -408,7 +408,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果
 
-![](../.gitbook/assets/taxi-tip-confusion-matrix-step-output.png)
+![](../.gitbook/assets/kubeflow-pipelines/confusion-matrix.png)
 
 ### Markdown
 
@@ -437,7 +437,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果
 
-![](../.gitbook/assets/mark.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/markdown-output.jpg)
 
 ### Html
 
@@ -456,7 +456,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果
 
-![](../.gitbook/assets/html.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/html-output.jpg)
 
 ### ROC
 
@@ -482,7 +482,7 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果
 
-![](../.gitbook/assets/roc.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/roc-curve.jpg)
 
 ## 指定 output
 
@@ -587,4 +587,4 @@ yaml 檔的 args 這裡要注意，input有2種參數\
     ```
 * 結果 根據 key 的值和數量不同，會有變化
 
-![](../.gitbook/assets/metric.jpg)
+![](../.gitbook/assets/kubeflow-pipelines/metric-output.jpg)

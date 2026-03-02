@@ -114,13 +114,13 @@ LoadPlugin python
 
 匯入grafana dashboard，這裡使用別人上傳至官網的dashboard，id為 3939
 
-![](../.gitbook/assets/import.JPG)
+![](../.gitbook/assets/gnocchi-collectd/import-dashboard.jpg)
 
 設定 datasource
 
-![](../.gitbook/assets/set.jpg)
+![](../.gitbook/assets/gnocchi-collectd/datasource-config.jpg)
 
 完成後可以看到監控圖
 
-![](../.gitbook/assets/ga_res.jpg)
+![](../.gitbook/assets/gnocchi-collectd/monitoring-result.jpg)
 
