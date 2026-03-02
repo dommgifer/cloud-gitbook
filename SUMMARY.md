@@ -31,7 +31,7 @@
 * [Rancher 2.0 ssh to OpenStack VM](kubernetes/rancher-2.0-ssh-to-openstack-vm.md)
 * [Rancher Kubernetes Engine\(RKE\)](kubernetes/rancher-kubernetes-engine-rke.md)
 * [Kubernetes 建立 pipeline](kubernetes/kubernetes-jian-li-pipeline.md)
-* [Istio Mirroring traffic](kubernetes/Istio-Mirroring-traffic.md)
+* [Istio Mirroring traffic](kubernetes/istio-mirroring-traffic.md)
 * [istio ambient Mode](kubernetes/istio-ambient-mode.md)
 * [Odigos 安裝使用](kubernetes/odigos.md)
 
