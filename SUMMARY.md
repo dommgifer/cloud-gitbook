@@ -21,6 +21,7 @@
 * [DRBD9 使用說明](other/drbd9-shi-yong-shui-ming.md)
 
 ## Kubernetes
+* [Chaos Mesh](kubernetes/chaos-mesh.md)
 * [m9sweeper](kubernetes/m9sweeper.md)
 * [Kubeflow Pipelines](kubernetes/kubeflow-pipelines.md)
 * [Ceph On Kubernetes](kubernetes/ceph-on-kubernetes.md)
