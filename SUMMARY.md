@@ -49,6 +49,7 @@
 * [Kube-explorer](kubernetes/kube-explorer.md)
 * [KubeMQ](kubernetes/KubeMQ.md)
 * [Argo Workflows](kubernetes/Argo-Workflows.md)
+* [Gthulhu 優先權排程測試](kubernetes/Gthulhu.md)
 
 ## AI
 
