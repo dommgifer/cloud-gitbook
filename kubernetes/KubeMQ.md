@@ -2,6 +2,7 @@
 
 {% hint style="info" %}
 本文轉寫時間為 2025年10月07日，內容可能會有變動，僅記錄
+並同時發佈在 [OSI Tech Blog](https://medium.com/osi-tech-blog/kubemq-%E4%BB%8B%E7%B4%B9-22a709677f24)
 {% endhint %}
 
 ## 介紹
