@@ -1,5 +1,9 @@
 # Signed and Encrypted Container Images
 
+{% hint style="info" %}
+本文轉寫時間為 2024年03月08日，內容可能會有變動，僅記錄
+{% endhint %}
+
 文章來源: https://itnext.io/securing-kubernetes-workloads-a-practical-approach-to-signed-and-encrypted-container-images-ff6e98b65bcd
 
 文章內容主要在說明是
