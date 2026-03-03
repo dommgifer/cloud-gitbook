@@ -20,6 +20,7 @@
 
 * [DRBD9 使用說明](other/drbd9-shi-yong-shui-ming.md)
 * [hadolint](other/hadolint.md)
+* [Blackbox exporter](other/blackbox-exporter.md)
 
 ## Kubernetes
 * [Kubekey](kubernetes/kubekey.md)
@@ -38,4 +39,6 @@
 * [Velero 備份 Kubernetes namespace](kubernetes/velero.md)
 * [Microshift 安裝](kubernetes/microshift.md)
 * [Robusta KRR](kubernetes/robusta-krr.md)
+* [Testkube 安裝及使用](kubernetes/testkube.md)
+* [Signed and Encrypted Container Images](kubernetes/signed-and-encrypted-image.md)
 
