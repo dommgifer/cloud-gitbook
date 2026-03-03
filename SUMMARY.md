@@ -45,4 +45,5 @@
 * [Testkube 安裝及使用](kubernetes/testkube.md)
 * [Signed and Encrypted Container Images](kubernetes/signed-and-encrypted-image.md)
 * [Kube-explorer](kubernetes/kube-explorer.md)
+* [KubeMQ](kubernetes/kubemq.md)
 
