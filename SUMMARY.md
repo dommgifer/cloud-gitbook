@@ -54,3 +54,5 @@
 ## AI
 
 * [地端模型使用 MCP 測試](AI/localLLM-use-mcp.md)
+* [自然語言注入混沌工程](AI/LLM-use-chaos.md)
+
