@@ -22,6 +22,8 @@
 * [hadolint](other/hadolint.md)
 * [Blackbox exporter](other/blackbox-exporter.md)
 * [Measure Your Maven Build](other/measure-maven-build.md)
+* [gosu 管理 Docker 非 root 執行的方式](other/gosu.md)
+* [Notary V2](other/notaryv2.md)
 
 ## Kubernetes
 * [Kubekey](kubernetes/kubekey.md)
