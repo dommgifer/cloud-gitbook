@@ -49,3 +49,7 @@
 * [Kube-explorer](kubernetes/kube-explorer.md)
 * [KubeMQ](kubernetes/KubeMQ.md)
 * [Argo Workflows](kubernetes/Argo-Workflows.md)
+
+## AI
+
+* [地端模型使用 MCP 測試](AI/localLLM-use-mcp.md)
