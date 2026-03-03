@@ -19,6 +19,7 @@
 ## Other
 
 * [DRBD9 使用說明](other/drbd9-shi-yong-shui-ming.md)
+* [hadolint](other/hadolint.md)
 
 ## Kubernetes
 * [Kubekey](kubernetes/kubekey.md)
@@ -36,4 +37,5 @@
 * [Odigos 安裝使用](kubernetes/odigos.md)
 * [Velero 備份 Kubernetes namespace](kubernetes/velero.md)
 * [Microshift 安裝](kubernetes/microshift.md)
+* [Robusta KRR](kubernetes/robusta-krr.md)
 
