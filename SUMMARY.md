@@ -34,4 +34,6 @@
 * [Istio Mirroring traffic](kubernetes/istio-mirroring-traffic.md)
 * [istio ambient Mode](kubernetes/istio-ambient-mode.md)
 * [Odigos 安裝使用](kubernetes/odigos.md)
+* [Velero 備份 Kubernetes namespace](kubernetes/velero.md)
+* [Microshift 安裝](kubernetes/microshift.md)
 
