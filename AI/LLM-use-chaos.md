@@ -78,7 +78,7 @@ flowchart LR
 
 下圖即為 Azure DevOps Pipeline 執行時輸入變數的畫面：
 
-> ![image](https://hackmd.io/_uploads/rkY6rYXnxg.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/pipeline-variable-input.png" alt=""><figcaption></figcaption></figure>
 
 
 #### 2\. LLM 生成與注入 Chaos YAML
@@ -89,7 +89,7 @@ Pipeline 啟動後，**自訂流程程式**會讀取這些變數，並將 `FAULT
 
 下圖展示了生成並注入 Chaos Mesh 腳本的 Pipeline 執行日誌：
 
-> ![image](https://hackmd.io/_uploads/HyZ1PFXnxx.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/pipeline-chaos-injection-log.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -100,12 +100,12 @@ Pipeline 啟動後，**自訂流程程式**會讀取這些變數，並將 `FAULT
 
 從下圖的 **Chaos Mesh Dashboard** 中，我們可以看到名為 `sock-shop-frontend-to-catalogue-delay-chaos-agent` 的 **NetworkChaos** 實驗正在運行（Running），類型是延遲（Delay），持續時間為 1 分鐘（Duration: 1m）。這證明了 LLM 成功理解並執行了我們的自然語言指令。
 
-> ![image](https://hackmd.io/_uploads/Bkf-wKm2xl.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/chaos-mesh-dashboard-running.png" alt=""><figcaption></figcaption></figure>
 
 
 最後，最重要的是實驗的**成效驗證**。透過 **Grafana Dashboard**，我們觀察到服務延遲的急劇上升：在故障注入（約 14:14）後，**Frontend 延遲**（Frontend latency）指標迅速飆高，同時 **QPS (Query Per Second)** 下降，這完美地驗證了我們的混沌實驗是**有效且可量化**的。
 
-> ![image](https://hackmd.io/_uploads/rk7mvYQ3ee.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/grafana-latency-spike.png" alt=""><figcaption></figcaption></figure>
 
 
 **這種模式適用於需要嚴謹流程控制和深度整合 CI/CD 的團隊。它確保了每個環節都在工程師的掌握之中，程式碼控制流程，LLM 著重在產生結果後交給程式。**
@@ -165,17 +165,17 @@ graph TD
   * **自然語言輸入：** Task 描述中寫道：「`front-end 服務對 carts 網路延遲 10000ms`」
   * **觸發機制：** 關鍵字留言觸發 Webhook。
 
->![image](https://hackmd.io/_uploads/B1IzO3m2xg.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/devops-task-trigger-comment.png" alt=""><figcaption></figcaption></figure>
 
 #### 2\. n8n 流程執行與 LLM 推理
 
 Webhook 收到訊息後，n8n 流程被喚醒。AI Agent 根據User Prompt 和 System Prompt 進行推理和工具調用。
 
-> ![image](https://hackmd.io/_uploads/rJd_5h7neg.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/n8n-workflow-execution.png" alt=""><figcaption></figcaption></figure>
 
 User Prompt: 需要從 webhook 傳來的資訊中擷取有用的訊息，例如：實驗描述和 task id
 
-> ![image](https://hackmd.io/_uploads/H11Wq2Qngg.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/n8n-user-prompt-config.png" alt=""><figcaption></figcaption></figure>
 
 System Prompt: 由於內容過長，所以大致描述System Prompt的架構 
 1. 語意分析：萃取持續時間、情境、Namespace
@@ -188,25 +188,25 @@ System Prompt: 由於內容過長，所以大致描述System Prompt的架構
 
 這裡就不贅述，按照 n8n 的 AI agent 設定即可
 
-> ![image](https://hackmd.io/_uploads/HyO0T372gx.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/n8n-agent-model-mcp-setup.png" alt=""><figcaption></figcaption></figure>
 
 
 #### 4\. 測試流程
 
 當 Webhook 被 Azure DevOps 呼叫後, 可以在 n8n 執行的流程下方看到 Log，LLM 會根據提示詞自動呼叫需要的 MCP Tool 完成任務。
 
-> ![image](https://hackmd.io/_uploads/BJZaCnm2ge.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/n8n-mcp-tool-call-log.png" alt=""><figcaption></figcaption></figure>
 
 最後回到 Azure DevOps Task 查看，可以看到LLM 把注入的 yaml 寫入到 Task，方便未來追蹤混沌實驗注入內容
 
-> ![image](https://hackmd.io/_uploads/Bk-4gpQneg.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/devops-task-yaml-writeback.png" alt=""><figcaption></figcaption></figure>
 
 
 #### 5\. 混沌成效驗證
 
 一樣透過 **Grafana Dashboard** 觀察實驗成效。下圖顯示，在故障注入後，**Catalogue Latency（延遲）** 指標瞬間飆升，而 **QPS (Query Per Second)** 急劇下降至接近零。這強有力地證明了 LLM 注入的混沌實驗是成功且有效的。
 
-> ![image](https://hackmd.io/_uploads/ByHRepQhll.png)
+<figure><img src="../.gitbook/assets/llm-use-chaos/grafana-mcp-chaos-result.png" alt=""><figcaption></figcaption></figure>
 
 
 透過 AI Agent 搭配 MCP 的方式，我們幾乎完全擺脫了程式撰寫的負擔。只需精心設計你的 Prompt，就能實現高度自動化且靈活的混沌實驗，特別適合追求快速迭代和無程式碼自動化的團隊。
